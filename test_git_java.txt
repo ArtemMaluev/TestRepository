@@ -24,4 +24,12 @@ public class TextColorSchemaClass implements TextColorSchema {
         
         return symbolMap.get(symbolMap.floorKey(color));
     }	
+	
+	public void setSymbolMap(NavigableMap<Integer, Character> symbolMap) {
+		this.symbolMap = symbolMap;
+	}
+	
+	public NavigableMap<Integer, Character> getSymbolMap() {
+		return symbolMap;
+	}
 }
