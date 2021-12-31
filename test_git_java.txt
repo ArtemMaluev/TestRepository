@@ -5,4 +5,31 @@ import java.util.TreeMap;
 
 public class TextColorSchemaClass implements TextColorSchema {
    	
+	private NavigableMap<Integer, Character> symbolMap = new TreeMap<>();	
+
+    public TextColorSchemaClass() {
+        symbolMap.put(0, '#');
+        symbolMap.put(32, '$');
+        symbolMap.put(64, '@');
+        symbolMap.put(96, '%');
+        symbolMap.put(128, '*');
+        symbolMap.put(160, '+');
+        symbolMap.put(192, '-');
+        symbolMap.put(224, '\'');
+        symbolMap.put(256, '0');
+    }
+
+    @Override
+    public char convert(int color) {
+        
+        return symbolMap.get(symbolMap.floorKey(color));
+    }	
+	
+	public void setSymbolMap(NavigableMap<Integer, Character> symbolMap) {
+		this.symbolMap = symbolMap;
+	}
+	
+	public NavigableMap<Integer, Character> getSymbolMap() {
+		return symbolMap;
+	}
 }
